@@ -34,7 +34,7 @@ def update(last):
     
 
 
-def withdrawl(data):
+def withdrawal(data):
     amount=int(input("Enter the amount to Withdrawl:"))
     if amount>0 and amount<20000 and amount%100==0:
         if int(data[2])>amount:
@@ -109,11 +109,6 @@ def transfer(data):
     
     
 
-
-
-
-
-
 def transaction(data):
     print("Your Account Balance is:{}".format(data[2]))
     logout=1
@@ -124,7 +119,7 @@ def transaction(data):
         elif(choice==1):
             deposit(data)
         elif(choice==2):
-            withdrawl(data)
+            withdrawal(data)
         elif(choice==3):
             phone=int(input("Enter the Phone Number:"))
             data[4]=phone
@@ -144,7 +139,7 @@ def transaction(data):
             transfer(data)
         elif(choice==7):
             logout=0
-            print("logout Suceessfully")
+            print("logout Successful")
         else:
             print("Invalid Choice")
             
@@ -157,20 +152,17 @@ def genotp(data):
     import random
     gen=random.randint(1000,9999)
     receiverAddress=str(data[3])
-    email="timcook732@gmail.com"
+    email="           "                       #enter the email from which you need to send otp eg bank email
     Subject="OTP for Login"
     Message=("The One Time Password For login is:{}".format(gen))
     connection = smtplib.SMTP('smtp.gmail.com', 587)
     connection.ehlo()
     connection.starttls()
-    connection.login(email,"237koocmit")
+    connection.login(email,"        ")       #password 
     connection.sendmail(email,receiverAddress,("Subject: " +str(Subject) + "\n\n" +str(Message)))
     connection.quit()
     return gen
     
-
-
-
 
 
 def startprog(data):
@@ -186,10 +178,6 @@ def startprog(data):
             print("Invalid otp")
         i=i-1
     
-
-
-
-
 
 
 
@@ -220,6 +208,6 @@ if __name__=="__main__":
             choice=0
             choice=input("Type 'Y' for reLogin:")
         else:
-            choice=input("Invalid input!!try again?  type 'Y' for reenter:")
+            choice=input("Invalid input!!try again?  type 'Y' to reenter:")
 
             
